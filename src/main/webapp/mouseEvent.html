@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-3.6.0.min.js"></script>  <!-- jquery가 먼저 와야 함 -->
+		<title>jQuery 마우스 이벤트</title>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			// 버튼 클릭했을 때 
+			$('#btn').on('click', function(){
+				alert("클릭했습니다.");
+			});
+			
+			// 2개의 이벤트 처리 
+			// 방법1 : on(이벤트1).on(이벤트2) 
+			/*$('#btn')
+				.on('mouseover', function(){
+					$(this).css('background-color', 'yellow');
+				})
+				.on('mouseout', function(){
+					$(this).css('background-color', 'line');
+				}); // on()종료 */
+				
+			// 방법2 : on({이벤트1, 이벤트2})
+			$('#btn').on({
+				mouseover:function(){
+					$(this).css('background-color', 'pink');
+				},
+				mouseout:function(){
+					$(this).css('background-color', 'skyblue');
+				}
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="클릭하세요">
+	</body>
+</html>

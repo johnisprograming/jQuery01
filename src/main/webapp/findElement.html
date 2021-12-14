@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 선택자를 이용해 원하는 노드 찾기</title>
+        <style type="text/css">        	
+			#menuBox div {
+				float:left;
+				background-color:green;
+				width:100px;	
+				height:50px;		
+			}		
+		</style>	
+		<script src="jquery-3.6.0.min.js"></script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){ 
+				// menuItem 클래스 선택자
+				var $menuItem = $('.menuItem'); //	총 4개
+				//alert($menuItem.length);	//	길이 확인 
+				
+				// index 값 출력할 <span> 태그 썬택
+				var $indexSpan = $('#indexSpan');
+				
+				//  4개 div에 대해서 
+				// 각 div 객체에 대해 함수 수행 : each() 메소드 사용
+				// each() 메소드에는 기본적으로 index 의미의 매개변수 포함되어 있음 
+				$menuItem.each(function (index){
+					$(this).hover(		// hover(): 마우스 올렸다가 땠을 때 호출
+						function(){		// 마우스 올렸을 때 수행되는 함수 
+							$(this).css('background', 'yellow');
+							$indwxSpan.text(index);
+						},
+						function(){		// 마우스 땠을 때 수행되는 함수
+							$(this).css('background', 'green');
+							$indexSpan.text("");
+						}
+					);
+				}); // each() 종료
+			}); //ready() 종료
+		</script>  
+    </head>
+    
+     <body>
+    	<div id="wrap">  
+			<h2>인덱스 : <span id="indexSpan">index</span></h2>
+			<div id="menuBox">
+			   <div class="menuItem"></div>
+			   <div class="menuItem"></div>
+			   <div class="menuItem"></div>
+			   <div class="menuItem"></div>     
+		    </div>
+        </div>
+    </body>
+</html>

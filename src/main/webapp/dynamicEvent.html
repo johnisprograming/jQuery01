@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery 동작 연결 이벤트</title>
+		<script src="js/jquery-3.6.0.min.js"></script>  <!-- jquery가 먼저 와야 함 -->
+		<script type="text/javascript">
+		$(document).ready(function(){
+			//createBtn 버튼 클릭했을 때 새 버튼 2개 생성 
+			$('#createBtn').on('click', function(){
+				$(this).after("<p><button id='newBtn1'>새 버튼1</button>" +
+								"<p><button id='newBtn2'>새 버튼2</button>");
+			});
+			
+			// 정적 이벤트 연결 방식으로 이벤트 처리
+			// 세로 생성된 요소에 이벤트 등록 되지 않음 : 클릭해도 이벤트 처리하지 않음 
+			$('#newBtn1').on('click', function(){
+				alert('[새 버튼1]을 클릭했습니다');
+			});
+			
+			// 동작 이벤트 연결 방식으로 이벤트 처리
+			// 클릭 이벤트 등록 처리되어서 알림창 출력 
+			$('#newBtn2').on('click', '#newBtn2', function(){
+				alert('[새 버튼2]을 클릭했습니다');
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<button id="createBtn">새 버튼 만들기</button>
+		
+		<h3>여기가</h3>
+	</body>
+</html>
