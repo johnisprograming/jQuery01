@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery text()/html()</title>
+		<script src="js/jquery-3.6.0.min.js"></script>  <!-- jquery가 먼저 와야 함 -->
+		<script type="text/javascript">
+		$(document).ready(function(){
+			//1. text() : 문자열만 반환(태그 제외)
+			var aText = $('#a').text();	// 괄호안에 인자 없으면 get()의 의미
+			// 변수 aText는 텍스트 값을 지정한 변수 : 객체로 해서 메소드 사용 불가
+			alert("text :" + aText);	// A 
+			
+			// 2. html() : 태그 포함된 문자열 반환 
+			var bHtml = $('#b').html(); // 괄호안에 인자 없으면 get()의 의미
+			alert("html : " + bHtml);
+		
+			// 3. text(문자명) : <h1>을 태그로 인식하지 못하고 문자열로 취급해서 <h1> 그대로 출력
+			aText.text('<h1>jQuery</h1>'); // 괄호안에 값이 없으면 set()의 의미
+			// 4. html(문자열) : <h1>을 태그로 인식해서 <h1> 태그 효과 적용
+			bHtml.html('<h1>jQuery</h1>');
+			
+		});
+		</script>
+	</head>
+	<body>
+		<div id="a"><h3>A</h3></div>
+		<div id="b"><h3>B</h3></div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery </title>
+		<script src="js/jquery-3.6.0.min.js"></script>  <!-- jquery가 먼저 와야 함 -->
+		<style>
+		div{margin:0 auto; width:1200px;}
+		img{width:220px; height:100px;}
+		</style>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('img').each(function(index, item){
+				$(this).hover(		
+					function(){		 
+						$(this).attr('src', 'image/img2-', + (index+1) + ".jpg");
+					},
+					function(){		 
+						$(this).attr('src', 'image/img1-', + (index+1) + ".jpg");
+					}
+				);
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<img src ="image/img1-1.jpg"><img src="image/img1-2.jpg"><img src = "image/img1-3.jpg"><img src = "image/img1-4.jpg">
+	</body>
+</html>
